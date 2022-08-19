@@ -1,0 +1,22 @@
+{
+  "name": "grey-goo",
+  "version": "0.0.1",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "repository": "https://github.com/irrelephant-io/grey-goo.git",
+  "author": "Eugene Rebedailo <eugene.rebedailo@instech.no>",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.7.0",
+    "@parcel/transformer-typescript-tsc": "^2.7.0",
+    "parcel": "^2.7.0",
+    "typescript": ">=3.0.0"
+  },
+  "scripts": {
+    "build": "parcel build --dist-dir=./dist src/index.html",
+    "watch": "parcel --dist-dir=./dist src/index.html"
+  },
+  "dependencies": {
+    "kontra": "^8.0.0"
+  }
+}
