@@ -2,18 +2,43 @@ import { Sprite, SpriteClass } from "kontra";
 import { theme } from "../../resource/theme";
 
 type CelestialProps = {
+    /**
+     * Mass of the celestial in grams
+     **/
+    mass: number,
+
+    /**
+     * Availability factor for the celestial mass,
+     * e.g. effective rate of conversion of it's mass to grey goo
+     * 0.7 meaning that 700g of mass can be converted per tick by 1kg
+     * of grey goo.
+     **/
+    massAvailability: number,
+
+    /**
+     * Display Name of the celestial
+     **/
+    celestialName: string,
+
+    /**
+     * Display radius of the celestial in px.
+     **/
     radius: number,
-    celestialName: string
-} & Parameters<typeof Sprite>[0];
+} & Partial<Parameters<typeof Sprite>[0]>;
 
 export class CelestialClass extends SpriteClass {
-    private radius: number = 100;
+    private radius: number;
+    public mass: number;
+    private massAvailability: number;
+    
     private celestialName: string;
 
     constructor(props: Partial<CelestialProps>) {
         super(props);
         this.radius = props.radius;
         this.celestialName = props.celestialName;
+        this.mass = props.mass;
+        this.massAvailability = props.massAvailability;
     }
 
     draw(): void {
@@ -33,6 +58,10 @@ export class CelestialClass extends SpriteClass {
             this.context.fillText(this.celestialName, this.x, textY);
         }
     }
+
+    destroy(): void {
+        console.log(`${this.celestialName} is no more!`);
+    }
 }
 
-export const Celestial = (props: Partial<CelestialProps>) => new CelestialClass(props);
+export const Celestial = (props: CelestialProps) => new CelestialClass(props);

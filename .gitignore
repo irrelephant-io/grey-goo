@@ -2,3 +2,7 @@ node_modules
 dist
 .parcel-cache
 yarn-error.log
+
+# Emacs temp files and backups
+*.*~
+*.*#
