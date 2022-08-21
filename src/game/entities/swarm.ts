@@ -33,20 +33,15 @@ export class SwarmClass extends SpriteClass {
     }
 
     private drawInSpace() {
-        super.draw();
+        // TODO: add render logic for space
     }
 
     private drawOnSurface() {
-        super.draw();
+        // TODO: add render logic on the surface
     }
 
     private drawLabels() {
-        const textSize = 32;
-        const textY = this.y + this.radius + textSize * 2;
-        this.context.fillStyle = theme.colorFgLight;
-        this.context.textAlign = "center";
-        this.context.font = `${textSize}px Arial`;
-        this.context.fillText(this.celestialName, this.x, textY);
+        // TODO: add render logic for text labels with swarm info. For now, we utilize debug UI
     }
 
     private devourCelestial(dt: number) {
