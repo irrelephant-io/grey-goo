@@ -8,12 +8,12 @@ type CelestialProps = {
 
 export class CelestialClass extends SpriteClass {
     private radius: number = 100;
-    private celestialName: string;
+    public celestialName: string;
 
     constructor(props: Partial<CelestialProps>) {
         super(props);
-        this.radius = props.radius;
-        this.celestialName = props.celestialName;
+        this.radius = props.radius!;
+        this.celestialName = props.celestialName!;
     }
 
     draw(): void {
